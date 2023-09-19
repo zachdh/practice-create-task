@@ -1,19 +1,10 @@
-restaurants = ["Raising Canes", "Chick Fil A", "Taco Bell", "McDonalds", "Burger King"]
+inventory = ("BOW", "SWORD", "WAND", "BOMB")
 
-print("Welcome to your restaurant ranking! Your current ranking", restaurants, "! You can add and rank a new restaurant.")
+input("WELCOME TO ADVENTURE SIMULATOR! WHAT IS YOUR NAME TRAVELER?")
 
-new_restaurant = input("What restaurant would you like to add?") 
+print("AS YOU ARE TRAVELING YOU COME ACORSS MERLIN THE GREAT, HE APPROACHES YOU WITH A QUEST TO DEFEAT THE FOUR GREAT CREATURES WHO HAVE BEEN TERRIFYING THE LANDS. WILL YOU BE THE FIRST TO COME BACK ALIVE? ")
 
-def rank_restaurant(new_restaurant, restaurants):
+def inventory(WEAPON_CHOICE, inventory):
     
-    for i in range(len(restaurants)):
-        str = "Do you like A)", new_restaurant + "or B)" + restaurants[i] + "more? A/B"
-        ranking= input(str)
-        if ranking == "A":
-            restaurants.insert(i,new_restaurant)
-            break
-        elif ranking == "B":
-            continue
-    return restaurants
-
-print("Your new ranking is", rank_restaurant(new_restaurant, restaurants))
+    for i in range(len(inventory)):
+        str = "PICK "
