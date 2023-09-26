@@ -1,3 +1,5 @@
+import random
+
 inventory = ["BOW", "SWORD", "WAND", "BOMB"]
 
 enemy_items = {
@@ -9,26 +11,43 @@ enemy_items = {
 
 def adventurer_simulator():
     Player_name = input("WELCOME TO ADVENTURE SIMULATOR! WHAT IS YOUR NAME TRAVELER? ")
-   
-    print("AS YOU ARE TRAVELING YOU COME  ACROSS MERLIN THE GREAT, HE APPROACHES YOU WITH A QUEST TO DEFEAT THE FOUR GREAT CREATURES WHO HAVE BEEN TERRIFYING THE LANDS. WILL YOU BE THE FIRST TO COME BACK ALIVE? ")
-   
-    print("Here is your inventory ", inventory)
-   
-    print("Gibby the Giant stands in your path!")
-   
-    correct_item = enemy_items["Gibby the Goblin"]
-   
-    player_choice= input("Choose a weapon from your inventory to defeat the enemy!")
+    
+    print("AS YOU ARE TRAVELING YOU COME ACROSS MERLIN THE GREAT, HE APPROACHES YOU WITH A QUEST TO DEFEAT THE FOUR GREAT CREATURES WHO HAVE BEEN TERRIFYING THE LANDS. WILL YOU BE THE FIRST TO COME BACK ALIVE? ")
 
-if player_choice == correct_item:
+    while True:
 
-    print("Congratulations", Player_name, ", you have defeated Gibby the Goblin. Prepare for the next enemy.")
+        if not enemy_items: 
+             
+             print("Congratulations, you have defeated all the enemies and saved all the villagers' lives!")
 
-else: 
+             break
+        
+        enemy = random.choice(list(enemy_items.keys()))
+        
+        print(enemy, "stands in your path!")
 
-    print:("Your", player_choice, "was no match for Gibby the Goblin. Gibby the Goblin sat on you and you died a horrible death.")
+        print("Here is your inventory ", inventory)
+        
+        player_choice = input("Choose a weapon from your inventory to defeat " + enemy + "! ")
+        
+        if player_choice in inventory:
+            
+            if player_choice == enemy_items[enemy]:
+                 
+                print("Congratulations", Player_name, ", you have defeated", enemy, ". Prepare for the next enemy.")
+                
+                del enemy_items[enemy]
+                
+            else: 
+                
+                print("Your", player_choice, "was no match for ", enemy, ". You died a horrible death.")
+                
+                print("Game over.")
 
-    break
+                break
+        else:
+            print("Invalid item. Please choose from your inventory.")
+    
 
 adventurer_simulator()
 
