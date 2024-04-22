@@ -2,16 +2,11 @@ import random
 
 inventory = ["BOW", "SWORD", "WAND", "BOMB"]
 
-enemy_items = {
-    "Gibby the Goblin": "SWORD",
-    "Wanda the Witch": "WAND",
-    "Killor the Knight": "BOW",
-    "Gregory the Giant": "BOMB"
-}
+status = ["KNIGHT", "FAIRY", "JESTER", "ROYALTY"]
 
-def adventurer_simulator():
+def adventurer_simulator(enemy_items):
     Player_name = input("WELCOME TO ADVENTURE SIMULATOR! WHAT IS YOUR NAME TRAVELER? ")
-    
+    Player_status = input("WHAT IS YOUR STATUS " + str(status) + " TRAVELER?")
     print("AS YOU ARE TRAVELING YOU COME ACROSS MERLIN THE GREAT, HE APPROACHES YOU WITH A QUEST TO DEFEAT THE FOUR GREAT CREATURES WHO HAVE BEEN TERRIFYING THE LANDS. WILL YOU BE THE FIRST TO COME BACK ALIVE? ")
 
     while True:
@@ -34,7 +29,7 @@ def adventurer_simulator():
             
             if player_choice == enemy_items[enemy]:
                  
-                print("Congratulations", Player_name, ", you have defeated", enemy, ". Prepare for the next enemy.")
+                print("Congratulations", Player_name, " THE ", Player_status, ", you have defeated", enemy, ". Prepare for the next enemy.")
                 
                 del enemy_items[enemy]
                 
@@ -49,6 +44,21 @@ def adventurer_simulator():
             print("Invalid item. Please choose from your inventory.")
     
 
-adventurer_simulator()
+enemy_items1 = {
+    "Tobo the Troll": "BOMB",
+    "Sibyl the Sorcerer": "WAND",
+    "Wrancor the Werewolf": "SWORD",
+    "Halphas the Horseman": "BOW"
+}
+
+enemy_items2 = {
+    "Tobo the Troll": "WAND",
+    "Sibyl the Sorcerer": "SWORD",
+    "Wrancor the Werewolf": "BOW",
+    "Halphas the Horseman": "BOMB"
+}
+
+
+adventurer_simulator(enemy_items2)
 
 
